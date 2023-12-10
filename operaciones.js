@@ -1,18 +1,7 @@
-const fs = require('fs');
-
-const cita = [{
-    nombredeanimal:"kiko",
-    edad: "",
-    tipodeanimal:"",
-    colordeanimal:"",
-    enfermedad:"",
-},
-{
-    nombredeanimal:"lolo",
-    edad: "",
-    tipodeanimal:"",
-    colordeanimal:"",
-    enfermedad:"",
+if(operacion === "registrar"){
+    registrar(nombre, edad, animal, color, enfermedad)
 }
-]
-fs.writeFileSync("citas.json", JSON.stringify(cita))
+
+if(operacion === "leer"){
+    leer()
+}
