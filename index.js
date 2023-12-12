@@ -1,26 +1,15 @@
-import { writeFile, readFile } from "node:fs/promises";
-import { argv } from "node:process";
+const {addCita, leerCita} = require('./operaciones.js')
 
-//const { operacion } = require('./operaciones.js')
+const elementos = process.argv.slice(2);
+const archivo = 'citas.json'
+addCita(elementos);
+leerCita(archivo)
 
-const [elementos] = argv.slice(2);
-//console.log(elementos);
 
-const addCita = async (elementos) => {
-    try {
-        const citas = JSON.parse(await readFile('citas.json'));
-        const cita = {
-            nombre: elementos, 
-            edad: elementos, 
-            animal: elementos, 
-            color: elementos, 
-            enfermedad: elementos
-        }
-        citas.push(cita);
-        await writeFile("citas.json", JSON.stringify(citas))
-    } catch (error) {
-        console.log(error)
-    }
+if(elementos === "registrar"){
+    registrar(nombre, edad, animal, color, enfermedad)
 }
 
-addCita(elementos)
+if(elementos === "leer"){
+    leer(archivo)
+}
